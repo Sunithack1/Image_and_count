@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+	</head>
+		<body> 
+
+		<div ng-app = "imageApp" ng-controller = 'imageCtrl'>
+			<button ng-click = "ascDsc()">Click me</button>
+			<p> {{count}} </p>
+			<img src="{{images[count]}}">
+			
+			</div>
+<script>
+			var app =  angular.module('imageApp', []);
+			app.controller ('imageCtrl', function($scope) {
+				var image1 = "http://images.all-free-download.com/images/graphicthumb/beautiful_the_outskirts_scenery_picture_2_165896.jpg";
+				var image2 = "http://images.all-free-download.com/images/graphiclarge/beautiful_scenery_04_hd_pictures_166258.jpg";
+				var image3 = "https://static.pexels.com/photos/240040/pexels-photo-240040.jpeg";
+				$scope.images = [image1, image2, image3];
+				$scope.count = 0;
+                $scope.ascDsc = function () {                	
+                	$scope.count++;
+                	if ($scope.count % 3 == 0) {
+                		$scope.count = 0;
+                	}
+                }
+			});
+		</script>
+		</body>
+	
+</html>
